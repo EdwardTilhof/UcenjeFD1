@@ -1,0 +1,19 @@
+body{
+    background-color: antiquewhite;
+}
+
+audio {
+    outline: none;
+    width: 100%;
+}
+
+video{
+    outline: 2rem;
+    max-width: 30%;
+}
+
+.stranica {
+    min-width: 600px;
+    min-height: 400px;
+    border: 2px solid blue;
+}
