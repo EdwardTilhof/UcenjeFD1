@@ -1,0 +1,40 @@
+body {
+    background-color: azure;
+}
+
+h1 {
+    color: blue;
+    padding-top: 15px;
+}
+
+h2 {
+    font-size: 1.3rem;
+}
+
+p {
+    padding-bottom: 10px;
+    font-family: sans-serif;
+}
+
+.container {
+    text-align: center;
+    width: 40%;
+    max-width: 400px;
+    min-width: 100px;
+    inline-size: 40%;
+    max-height: 400px;
+    min-height: 100px;
+
+    
+
+    margin: 150px auto;
+    background-color: white;
+
+    box-sizing: border-box;
+    border-radius: 5px;
+
+    outline-style: solid;
+    outline-width: 3px;
+    outline-color: aqua;
+    outline-offset: 3px;
+}
