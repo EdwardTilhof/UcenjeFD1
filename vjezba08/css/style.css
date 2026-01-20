@@ -4,7 +4,7 @@ body{
 
 @font-face{
     font-family: 'Oswald';
-    src: url('../Fonts/Oswald-VariableFont_wght.ttf') format('truetype');
+    src: url('../fonts/Oswald-VariableFont_wght.ttf') format('truetype');
 }
 
 h1{
