@@ -46,6 +46,14 @@
     padding: 1.5rem;
 }
 
+.card-img {
+    height: 180px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
 /* BADGE - Za bodove i gamifikaciju */
 .badge {
     padding: 0.25rem 0.75rem;
