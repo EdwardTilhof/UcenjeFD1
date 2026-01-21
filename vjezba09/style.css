@@ -1,0 +1,54 @@
+body{
+    font-family: sans-serif;
+}
+
+
+ul{
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+li a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.4rem;
+}
+
+li{
+    text-align: center;
+}
+
+/*Tablet*/
+@media (min-width: 450px){
+    body{
+        background-color: antiquewhite;
+    }
+}
+
+/*Tablet Pejzažno*/
+@media (orientation: landscape) and (min-width: 450px){
+    body{
+        background-color: blueviolet;
+    }
+}
+
+
+
+/* Prilagodba za desktop u učionici 2 */
+@media (orientation: portrait) and (min-width: 650px){
+    ul{
+        flex-direction: row;
+    }
+    body{
+        background-color: white;
+    }
+}
+
+@media print {
+    nav{
+        display: none;
+    }
+}
