@@ -2,6 +2,24 @@ body{
     font-family: sans-serif;
 }
 
+div.k{
+    border: 1px solid black;
+    padding: 20px;
+    font-size: 2rem;
+}
+
+.container{
+    display: grid;
+    grid-template-areas: 
+    "a b"
+    "c d";
+    gap: 2rem;
+}
+
+.a{grid-area: a;}
+.b{grid-area: b;}
+.c{grid-area: c;}
+.d{grid-area: d;}
 
 ul{
     list-style-type: none;
