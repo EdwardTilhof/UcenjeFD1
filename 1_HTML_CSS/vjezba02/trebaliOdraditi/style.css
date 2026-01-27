@@ -1,0 +1,245 @@
+/* 1. OSNOVNE POSTAVKE I POZADINA (Background properties) */
+:root {
+    --primarna-boja: #2c3e50;
+    --naglasena-boja: #e67e22;
+    --pozadina-svijetlo: #ecf0f1;
+}
+
+body {
+    /* Korištenje background shorthand i specifičnih svojstava */
+    background-color: var(--pozadina-svijetlo);
+    background-image: radial-gradient(circle, #bdc3c7 1px, transparent 1px);
+    background-size: 20px 20px; /* Veličina uzorka */
+    background-repeat: repeat;
+    background-attachment: fixed; /* Pozadina fiksirana pri skrolanju */
+    background-position: center top;
+    background-origin: padding-box;
+    background-clip: border-box;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* 2. KONTEJNER (Dimensions, Box-sizing, Shadows) */
+.container {
+    /* Dimenzije (Fizičke i Logičke) */
+    width: 90%;
+    max-width: 1000px;
+    min-width: 300px;
+    inline-size: 90%; /* Logička širina */
+    max-inline-size: 1000px;
+    
+    /* Visina */
+    min-height: 100vh;
+    min-block-size: 100vh; /* Logička visina */
+    
+    margin: 0 auto; /* Centriranje */
+    background-color: white;
+    
+    /* Box Model */
+    box-sizing: border-box;
+    
+    /* Sjena */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    
+    /* Outline (Vanjski obrub) */
+    outline-style: solid;
+    outline-width: 1px;
+    outline-color: rgba(0,0,0,0.1);
+    outline-offset: 10px;
+}
+
+/* 3. ZAGLAVLJE (Background Blend Modes & Padding) */
+header {
+    background-image: url('slike/slika5.png');
+    background-color: var(--primarna-boja);
+    background-blend-mode: overlay; /* Miješanje boje i slike */
+    background-position-x: center;
+    background-position-y: center;
+    color: white;
+    
+    /* Logički Padding */
+    padding-block-start: 4rem;
+    padding-block-end: 2rem;
+    padding-inline: 2rem; /* Lijevo i desno */
+    
+    text-align: center;
+    
+    /* Specifični Border Radius na vrhu */
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+/* 4. FIGURE & SLIKE (Borders - Fizički i Logički) */
+/* Selektor potomka */
+.gallery figure {
+    /* Margine */
+    margin-block: 2rem;
+    margin-inline: auto;
+    
+    /* Dimenzije */
+    width: 60%;
+    aspect-ratio: 16 / 9; /* Moderno svojstvo za omjer */
+    
+    /* Border (Sve strane pojedinačno za demo) */
+    border-top-style: solid;
+    border-top-width: 2px;
+    border-top-color: var(--primarna-boja);
+    
+    border-right: 2px dashed var(--primarna-boja); /* Shorthand */
+    
+    border-bottom-width: 4px;
+    border-bottom-style: double;
+    border-bottom-color: var(--primarna-boja);
+    
+    border-left-style: solid;
+    border-left-width: 2px;
+    border-left-color: var(--primarna-boja);
+
+    /* Radius */
+    border-start-start-radius: 20px; /* Logički (Gore-Lijevo u LTR) */
+    border-end-end-radius: 20px;     /* Logički (Dolje-Desno u LTR) */
+    
+    padding: 10px;
+    background-color: #fff;
+}
+
+.gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px; /* Standardni radius */
+}
+
+figcaption {
+    text-align: center;
+    padding-top: 10px;
+    font-style: italic;
+    color: #555;
+}
+
+/* 5. LISTE (List Styles & Logical Borders) */
+.content-area {
+    /* Padding mix */
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
+}
+
+/* Uređena lista */
+ol {
+    list-style-type: upper-roman;
+    list-style-position: inside;
+    border-inline-start: 5px solid var(--naglasena-boja); /* Lijeva crta (logički) */
+    padding-inline-start: 20px;
+    margin-bottom: 30px;
+}
+
+/* Neuređena lista */
+ul {
+    list-style-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="%23e67e22"/></svg>');
+    border-block-end: 1px solid #ccc; /* Donja crta (logički) */
+    padding-bottom: 20px;
+}
+
+/* Definicijska lista - Border Image Demo */
+dl {
+    margin-top: 40px;
+    padding: 20px;
+    
+    /* Border Image Properties */
+    border: 10px solid transparent;
+    border-image-source: linear-gradient(45deg, var(--primarna-boja), var(--naglasena-boja));
+    border-image-slice: 1;
+    border-image-width: 5px;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+}
+
+dt {
+    font-weight: bold;
+    color: var(--primarna-boja);
+    margin-block-end: 5px;
+}
+
+dd {
+    margin-inline-start: 0;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border-left: 2px solid #ddd;
+}
+
+/* 6. CITATI (Blockquote & Logical Borders Extended) */
+blockquote {
+    background-color: #f9f9f9;
+    margin: 40px 0;
+    
+    /* Logički Padding */
+    padding-block: 20px;
+    padding-inline: 30px;
+    
+    /* Kompleksni Logički Borderi */
+    border-block-start-style: solid;
+    border-block-start-width: 4px;
+    border-block-start-color: var(--naglasena-boja);
+    
+    border-block-end-style: dotted;
+    border-block-end-width: 2px;
+    border-block-end-color: var(--naglasena-boja);
+    
+    border-inline-start-style: solid;
+    border-inline-start-width: 8px;
+    border-inline-start-color: var(--primarna-boja);
+    
+    border-inline-end-style: none;
+    
+    font-size: 1.1em;
+}
+
+q {
+    color: var(--naglasena-boja);
+    font-weight: bold;
+}
+
+cite {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9em;
+    text-align: right;
+    color: #777;
+}
+
+/* 7. ADRESA (Size constraints & Outline) */
+address {
+    background-color: var(--primarna-boja);
+    color: white;
+    font-style: normal;
+    
+    /* Logičke margine */
+    margin-block-start: 50px;
+    margin-inline: 0;
+    
+    /* Padding mix */
+    padding-top: 30px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    
+    /* Dimenzije bloka */
+    block-size: auto;
+    min-block-size: 100px;
+    max-block-size: 200px;
+    
+    /* Radius donji kutovi (Fizički) */
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
+    text-align: center;
+}
+
+/* Selektor atributa */
+a[href^="mailto"] {
+    color: var(--naglasena-boja);
+    text-decoration: none;
+    border-bottom: 1px dotted white;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dnevnik Putovanja - HTML & CSS Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Dnevnik Planinarenja</h1>
+            <p>Istraživanje prirode, jedan korak po jedan.</p>
+        </header>
+
+        <div class="content-area">
+            <section class="gallery">
+                <h3>Vizualni doživljaj</h3>
+                <picture>
+                    <source media="(min-width: 650px)" srcset="slike/slika1.png">
+                    <source media="(min-width: 465px)" srcset="slike/slika2.png">
+                    <img src="slike/slika3.png" alt="Planinski lanac u magli" style="width: 100%; height: auto;">
+                </picture>
+
+
+                <figure>
+
+                    
+
+[Image of mountain landscape]
+
+                    <img src="slike/slika4.png" alt="Pogled s vrha planine">
+                    <figcaption>Slika 1: Pogled s "Zlatnog Vrha" u ranu zoru.</figcaption>
+                </figure>
+            </section>
+
+            <section>
+                <h3>Planiranje puta</h3>
+                
+                <h4>Itinerar (Uređena lista)</h4>
+                <ol>
+                    <li>Polazak iz baze u 05:00</li>
+                    <li>Dolazak do prvog odmorišta u 08:30</li>
+                    <li>Uspon na greben do 11:00</li>
+                    <li>Povratak u dolinu prije mraka</li>
+                </ol>
+
+                <h4>Oprema (Neuređena lista)</h4>
+                <ul>
+                    <li>Gojzerice i rezervne čarape</li>
+                    <li>Voda (minimalno 2L)</li>
+                    <li>Karta i kompas</li>
+                    <li>Prva pomoć</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Inspiracija</h3>
+                <blockquote>
+                    <p>U svakoj šetnji prirodom čovjek dobiva puno više nego što traži.</p>
+                    <cite>- John Muir</cite>
+                </blockquote>
+
+                <p>Kao što je moj vodič rekao: <q>Nije bitno koliko brzo ideš, već da ne staješ.</q> To mi je dalo snage.</p>
+            </section>
+
+            <section>
+                <h3>Mali rječnik pojmova</h3>
+                <dl>
+                    <dt>Markacija</dt>
+                    <dd>Oznaka na stablu ili kamenu koja planinarima pokazuje put. Obično crveno-bijele boje.</dd>
+                    
+                    <dt>Bivak</dt>
+                    <dd>Privremeno boravište ili sklonište na otvorenom, često bez komfora doma.</dd>
+                    
+                    <dt>Visinska bolest</dt>
+                    <dd>Reakcija organizma na smanjenu količinu kisika na velikim visinama.</dd>
+                </dl>
+
+                <dl>
+                    <dt></dt>
+                    <dd>1</dd>
+                    <dd>2</dd>
+                    <dd>3</dd>
+                </dl>
+
+            </section>
+        </div>
+
+        <footer>
+            <address>
+                <strong>Planinarsko društvo "Velebit"</strong><br>
+                Ulica Šumskih Jagoda 12<br>
+                10000 Zagreb, Hrvatska<br>
+                <br>
+                Kontakt: <a href="mailto:info@planine.hr">info@planine.hr</a>
+            </address>
+        </footer>
+    </div>
+</body>
+</html>

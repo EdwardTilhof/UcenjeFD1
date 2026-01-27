@@ -1,0 +1,75 @@
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+}
+
+p {
+  font-size: 16px;
+  color: #555;
+}
+
+#sadrzaj p {
+    color: #1a2b3c;
+    visibility: visible;
+    /* font: italic small-caps bold 16px/1.5 "Helvetica Neue", sans-serif; */ /* Skraćeni font zapis, izbjegavamo ga da prikažemo pojedinačna svojstva */
+    font-family: "Georgia", serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: common-ligatures small-caps;
+    font-kerning: normal;
+    font-language-override: "HRV";
+    font-size-adjust: 0.5;
+    font-stretch: normal;
+    font-synthesis: weight style;
+    font-synthesis-small-caps: auto;
+    font-synthesis-style: auto;
+    font-synthesis-weight: auto;
+    font-variant-alternates: normal;
+    font-variant-caps: normal;
+    font-variant-east-asian: normal;
+    font-variant-emoji: unicode;
+    font-variant-ligatures: common-ligatures;
+    font-variant-numeric: normal;
+    font-variant-position: normal;
+    text-align: justify;
+    text-align-last: left;
+    text-decoration-color: #ff0000;
+    text-decoration-line: underline;
+    text-decoration-skip-ink: auto;
+    text-decoration-style: solid;
+    text-decoration-thickness: 1px;
+    text-emphasis: none;
+    text-emphasis-color: #000000;
+    text-emphasis-position: over right;
+    text-emphasis-style: filled;
+    text-indent: 30px;
+    text-justify: inter-word;
+    text-orientation: mixed;
+    text-overflow: clip;
+    text-rendering: optimizeLegibility;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    text-transform: none;
+    text-underline-offset: auto;
+    text-underline-position: auto;
+    letter-spacing: 0.5px;
+    word-spacing: 2px;
+    line-height: 1.7;
+    white-space: normal;
+    white-space-collapse: collapse;
+    word-break: normal;
+    hanging-punctuation: first;
+    hyphenate-character: auto;
+    hyphens: manual;
+    initial-letter: 1.5;
+    line-break: auto;
+    text-wrap: wrap;
+    direction: ltr;
+    unicode-bidi: isolate;
+    writing-mode: horizontal-tb;
+}
