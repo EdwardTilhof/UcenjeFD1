@@ -113,6 +113,7 @@ document.getElementById('izvedi').addEventListener('click', () => {
   // Izracunaj njegovu dob u odnosu na tekucu godinu i ispisi dali je punoljetan
 
   if (zadatak === '4') {
+
     const x = Number(a)
 
     if (isNaN(x)) {
@@ -128,6 +129,135 @@ document.getElementById('izvedi').addEventListener('click', () => {
     }
   }
 
+// -----------------------
+// ZADATAK 5
+// -----------------------
+
+if (zadatak === '5') {
+  console.log('Rjesavam zadatak 5');
+
+  const x = Number(a);
+  const y = Number(b);
+  const z = Number(c);
+  const zz = Number(d);
+
+  if (isNaN(x) || isNaN(y) || isNaN(z) || isNaN(zz)) {
+    rezultat.innerHTML = 'Niste unjeli broj.';
+    return;
+  }
+
+  const biggerXY = x > y ? x : y;
+  const biggerZZZ = z > zz ? z : zz;
+
+  const sum = biggerXY + biggerZZZ;
+
+  // ✅ FIX: backticks
+  rezultat.innerHTML = `Rezultat je: ${sum}`;
+  return;
+}
+
+// -----------------------
+// ZADATAK 6
+// -----------------------
+
+if (zadatak === '6') {
+  console.log('Rjesavam zadatak 6');
+
+  const zz = Number(d);
+
+  if (a !== '' || b !== '' || c !== '') {
+    rezultat.innerHTML =
+      'Unijeli ste podatke u polja A, B ili C. Molimo ostavite ih prazna.';
+    return;
+  }
+   if (isNaN(zz)) {
+    rezultat.innerHTML = 'Niste unjeli broj u polje D.';
+    return;
+  }
+const sum = zz * 10
+
+rezultat.innerHTML = `Rezultat je: ${sum}`;
+return;
+}
+
+// -----------------------
+// ZADATAK 7
+// -----------------------
+if (zadatak === '7') {
+  console.log('Rjesavam zadatak 7');
+
+  const adresaEdunova = 'Osijek';
+
+  if (a !== '' || c !== '' || d !== '') {
+    rezultat.innerHTML =
+      'Unijeli ste podatke u polja A, C ili D. Molimo ostavite ih prazna.';
+    return;
+  }
+
+  if (b === '') {
+    rezultat.innerHTML = 'Molimo unesite adresu u polje B.';
+    return;
+  }
+
+  if (b !== adresaEdunova) {
+    rezultat.innerHTML = 'Niste unijeli ispravnu adresu.';
+    return;
+  }
+
+  rezultat.innerHTML = 'Unijeli ste pravu adresu.';
+  return;
+}
+
+// -----------------------
+// ZADATAK 7
+// -----------------------
+
+if (zadatak === '8') {
+  console.log('Rjesavam zadatak 8');
+
+  const x = a;
+  const y = b;
+  
+  if (c !== '' || d !== ''){
+    rezultat.innerHTML = 'Unjeli ste podatke u polja C i D. Polja C i D moraju ostati prazna'
+    return;
+  }
+  if (x === '') {
+    rezultat.innerHTML = 'Molimo unesite podatke u polje A';
+    return;
+  }
+   if (y === '') {
+    rezultat.innerHTML = 'Molimo unesite podatke u polje B';
+    return;
+  }
+
+  rezultat.innerHTML = `unjeli ste ${x} i ${y} te ste dobili ${x+y}`;
+  return;
+}
+
+// -----------------------
+// ZADATAK 7
+// -----------------------
+
+if (zadatak === '9') {
+  console.log('Rjesavam zadatak broj 9');
+
+  const x = Number(a)
+  const zz = Number(d)
+
+  if (b !== '' || c !== ''){
+    rezultat.innerHTML = 'Polja B i C trebaju ostat prazna';
+    return;
+  }
+  if (isNaN(x) || isNaN(zz)) {
+    rezultat.innerHTML = 'Polja A i D mogu jedino imati brojeve. Molimo ne upisivati znakove ili prazna polja'
+  return;
+  }
+
+  const sum = x * zz
+  rezultat.innerHTML = `Unjeli ste brojeve A = ${x} i D = ${zz} te je umnozak ${sum}`
+  return;
+}
 
 
   // -----------------------
