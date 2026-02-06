@@ -1,13 +1,12 @@
-// switch je visestruko grananje
-// sve sto moze switch moze i if
-// switch radi sa svim tipovima podataka
+// switch je višestruko grananje
+// sve što može switch može i if
+// switch radi s svim tipovima podataka
+const ocjena = 3;
 
-const ocjena = 4;
-
-switch (ocjena) {
-case 1:
-    console.log('Nedovoljan');
-    break;
+switch(ocjena){
+    case 1:
+        console.log('Nedovoljan');
+        break;
     case 2:
         console.log('Dovoljan');
         break;
@@ -21,5 +20,5 @@ case 1:
         console.log('Izvrstan');
         break;
     default:
-        console.log('Nije broj');                
+        console.log('Nije broj');
 }
