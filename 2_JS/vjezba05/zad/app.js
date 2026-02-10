@@ -70,6 +70,27 @@ document.getElementById('izvedi').addEventListener('click', () => {
     rezultat.innerHTML = "Broj znakova: " + a.length;
 
     break;
+
+    case '8':
+
+    const xx = Number(a)
+    if(!a){
+      rezultat.innerHTML='Unesite broj';
+      return;
+    }
+let s='';
+    for(i=0;i<xx;i++)
+      console.log(i + ',');
+      s += i+', ';
+      if(i===xx){
+        s+=i;
+      }else {
+        s += i +', '
+      }
+    rezultat.innerHTML= s;
+
+break;
+
     default:
       rezultat.innerHTML = `Nepoznati zadatak ${zadatak}`;
   }
