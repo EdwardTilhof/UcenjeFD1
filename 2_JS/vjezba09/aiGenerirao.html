@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Generator Lozinki</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --glass: rgba(255, 255, 255, 0.95);
+            --text: #1f2937;
+        }
+
+        * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+        body {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background: var(--glass);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h1 { text-align: center; color: var(--primary); margin-bottom: 1.5rem; }
+
+        .settings-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        label { font-weight: 600; font-size: 0.9rem; color: #4b5563; }
+
+        input[type="number"], input[type="range"] {
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover { background: var(--primary-hover); }
+
+        #results {
+            margin-top: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+            background: #f3f4f6;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .password-item {
+            background: white;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: monospace;
+            font-size: 1.1rem;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .copy-btn {
+            background: #e5e7eb;
+            color: #374151;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            width: auto;
+            margin: 0;
+        }
+
+        .copy-btn:hover { background: #d1d5db; }
+
+        .full-width { grid-column: span 2; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🔐 Generator Lozinki</h1>
+    
+    <div class="settings-grid">
+        <div class="input-group">
+            <label>Dužina lozinke (<span id="lenVal">12</span>)</label>
+            <input type="range" id="length" min="4" max="50" value="12" oninput="lenVal.innerText = this.value">
+        </div>
+
+        <div class="input-group">
+            <label>Broj lozinki</label>
+            <input type="number" id="quantity" min="1" max="50" value="1">
+        </div>
+
+        <div class="checkbox-group"><input type="checkbox" id="upper" checked> <label for="upper">Velika slova (A-Z)</label></div>
+        <div class="checkbox-group"><input type="checkbox" id="lower" checked> <label for="lower">Mala slova (a-z)</label></div>
+        <div class="checkbox-group"><input type="checkbox" id="numbers" checked> <label for="numbers">Brojevi (0-9)</label></div>
+        <div class="checkbox-group"><input type="checkbox" id="symbols"> <label for="symbols">Interpunkcija (!@#$)</label></div>
+        
+        <hr class="full-width">
+        
+        <div class="checkbox-group"><input type="checkbox" id="startNumber"> <label for="startNumber">Počinje brojem</label></div>
+        <div class="checkbox-group"><input type="checkbox" id="startSymbol"> <label for="startSymbol">Počinje znakom</label></div>
+        <div class="checkbox-group"><input type="checkbox" id="endNumber"> <label for="endNumber">Završava brojem</label></div>
+        <div class="checkbox-group"><input type="checkbox" id="endSymbol"> <label for="endSymbol">Završava znakom</label></div>
+        
+        <div class="checkbox-group full-width"><input type="checkbox" id="noRepeat"> <label for="noRepeat">Bez ponavljanja znakova</label></div>
+    </div>
+
+    <button onclick="generatePasswords()">Generiraj Lozinke</button>
+
+    <div id="results">
+        <div style="text-align: center; color: #9ca3af; padding: 20px;">Lozinke će se pojaviti ovdje...</div>
+    </div>
+</div>
+
+<script>
+    const charSets = {
+        upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        lower: "abcdefghijklmnopqrstuvwxyz",
+        numbers: "0123456789",
+        symbols: "!@#$%^&*()_+-=[]{}|;:,.<>?"
+    };
+
+    function generatePasswords() {
+        const length = parseInt(document.getElementById('length').value);
+        const quantity = parseInt(document.getElementById('quantity').value);
+        const includeUpper = document.getElementById('upper').checked;
+        const includeLower = document.getElementById('lower').checked;
+        const includeNumbers = document.getElementById('numbers').checked;
+        const includeSymbols = document.getElementById('symbols').checked;
+        
+        const startNumber = document.getElementById('startNumber').checked;
+        const startSymbol = document.getElementById('startSymbol').checked;
+        const endNumber = document.getElementById('endNumber').checked;
+        const endSymbol = document.getElementById('endSymbol').checked;
+        const noRepeat = document.getElementById('noRepeat').checked;
+
+        let mainPool = "";
+        if (includeUpper) mainPool += charSets.upper;
+        if (includeLower) mainPool += charSets.lower;
+        if (includeNumbers) mainPool += charSets.numbers;
+        if (includeSymbols) mainPool += charSets.symbols;
+
+        if (mainPool === "") {
+            alert("Molimo odaberite barem jednu vrstu znakova!");
+            return;
+        }
+
+        const resultsContainer = document.getElementById('results');
+        resultsContainer.innerHTML = "";
+
+        for (let i = 0; i < quantity; i++) {
+            let password = "";
+            let usedChars = new Set();
+            let currentPool = mainPool;
+
+            for (let j = 0; j < length; j++) {
+                let charToUse = "";
+                let specificPool = currentPool;
+
+                // Provjera pravila za početak (indeks 0)
+                if (j === 0) {
+                    if (startNumber && startSymbol) {
+                        specificPool = charSets.numbers + charSets.symbols;
+                    } else if (startNumber) {
+                        specificPool = charSets.numbers;
+                    } else if (startSymbol) {
+                        specificPool = charSets.symbols;
+                    }
+                } 
+                // Provjera pravila za kraj (zadnji indeks)
+                else if (j === length - 1) {
+                    if (endNumber && endSymbol) {
+                        specificPool = charSets.numbers + charSets.symbols;
+                    } else if (endNumber) {
+                        specificPool = charSets.numbers;
+                    } else if (endSymbol) {
+                        specificPool = charSets.symbols;
+                    }
+                }
+
+                // Filtriranje za "bez ponavljanja"
+                if (noRepeat) {
+                    let available = specificPool.split('').filter(c => !usedChars.has(c)).join('');
+                    if (available.length === 0) {
+                        charToUse = "?"; // Signal da nema više dostupnih znakova
+                    } else {
+                        charToUse = available.charAt(Math.floor(Math.random() * available.length));
+                    }
+                } else {
+                    charToUse = specificPool.charAt(Math.floor(Math.random() * specificPool.length));
+                }
+
+                password += charToUse;
+                usedChars.add(charToUse);
+            }
+
+            displayPassword(password);
+        }
+    }
+
+    function displayPassword(pw) {
+        const resultsContainer = document.getElementById('results');
+        const div = document.createElement('div');
+        div.className = 'password-item';
+        div.innerHTML = `
+            <span>${pw}</span>
+            <button class="copy-btn" onclick="copyToClipboard('${pw}')">Kopiraj</button>
+        `;
+        resultsContainer.appendChild(div);
+    }
+
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            alert("Lozinka kopirana!");
+        });
+    }
+</script>
+
+</body>
+</html>

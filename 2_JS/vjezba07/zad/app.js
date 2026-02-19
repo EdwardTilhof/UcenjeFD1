@@ -83,6 +83,27 @@ if (suma2 === a2){
     case '4':
       // rješavanje 4. zadatak
 
+      let s = '';
+      for (let i = 0 ; i < a.lenght;i++){
+        if (a[i]!=' '){
+          s += a[i].toLowerCase();
+        }
+      }
+      console.log('s=',s)
+      let p = true;
+      for (let i = 0; i < duljina / 2; i++){
+        if(tekst[i] !== tekst[duljina-1-i]){
+          p = false;
+        }
+      }
+      if(p){
+        rezultat.innerHTML = 'izraz je palindrom'
+      } else {
+        rezultat.innerHTML = ' Izraz nije palindrom'
+      }
+
+
+
       // kraj rješavanje 4. zadatak
       break;
     case '5':
