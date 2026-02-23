@@ -46,7 +46,7 @@ function prikaziPitanje() {
     document.getElementById('brojac-pitanja').innerText = `Pitanje ${indeksTrenutnogPitanja + 1}/5`;
     
     // Traka napretka
-    const napredak = ((indeksTrenutnogPitanja) / 5) * 100;
+    const napredak = ((indeksTrenutnogPitanja+1) / 5) * 100;
     document.getElementById('traka-napretka').style.width = napredak + '%';
 
     const popisOdgovora = document.getElementById('popis-odgovora');
@@ -85,26 +85,27 @@ function prikaziRezultate() {
     document.getElementById('konacni-rezultat').innerText = `${rezultat}/5`;
     
     let ocjena = '';
-
-    switch (rezultat) {
-        case 5:
-            ocjena = 'Odličan (5)! Pravi si ES6 majstor!';
-            break;
-        case 4:
-            ocjena = 'Vrlo dobar (4)! Skoro savršeno.';
-            break;
-        case 3:
-            ocjena = 'Dobar (3). Solidno poznavanje.';
+    switch(rezultat){
+        case 1:
+            ocjena = 'Nedovoljan (1). Ponovi osnove!';
             break;
         case 2:
             ocjena = 'Dovoljan (2). Trebaš još malo učiti.';
             break;
-        default: 
-            ocjena = 'Nedovoljan (1). Ponovi osnove!';
+        case 3:
+            ocjena = 'Dobar (3). Solidno poznavanje.';
             break;
+        case 4:
+            ocjena = 'Vrlo dobar (4)! Skoro savršeno.';
+            break;
+        case 5:
+            ocjena = 'Odličan (5)! Pravi si ES6 majstor!';
+            break;
+        default:
+            ocjena = 'Nije ocjena';
     }
     
-    document.getElementById('tekst-ocjene').innerText = 'Ocjena: ' + ocjena;
+    document.getElementById('tekst-ocjene').innerText = ocjena;
 }
 
 // Inicijalno pokretanje

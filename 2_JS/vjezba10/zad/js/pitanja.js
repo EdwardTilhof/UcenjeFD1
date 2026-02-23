@@ -1,4 +1,5 @@
-const skupPitanja = [{
+const skupPitanja = [
+    {
         pitanje: 'Kojom ključnom rječju definiramo varijablu čiju vrijednost možemo mijenjati?',
         tocno: 'let',
         odgovori: ['const', 'let', 'var']
@@ -69,8 +70,8 @@ const skupPitanja = [{
         odgovori: ['while', 'for', 'do while']
     },
     {
-        pitanje: 'Koji najzgodniji muskarac na svijetu',
-        tocno: 'Edo',
-        odgovori: ['Edo', 'Marko', 'Ivan']  
+        pitanje: 'pitanje',
+        tocno: 'o1',
+        odgovori: ['o1', 'o2', 'o3']
     },
 ];

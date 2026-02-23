@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ljubavni kalkulator 💜</title>
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(160deg, #ffb6c1, #e0a8ff);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  h1 {
+    color: #a10052;
+  }
+  .container {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    text-align: center;
+  }
+  input {
+    padding: 10px;
+    margin: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  button {
+    background-color: #a10052;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  button:hover {
+    background-color: #c60065;
+  }
+  #result {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>💞 Ljubavni kalkulator 💞</h1>
+    <p>Upiši svoje ime i ime svoje simpatije:</p>
+    <input type="text" id="name1" placeholder="Upiši njegovo ime">
+    <input type="text" id="name2" placeholder="Upiši njezino ime"><br>
+    <button onclick="calculateLove()">Izračunaj ❤️</button>
+    <div id="result"></div>
+  </div>
+<script>
+function calculateLove() {
+  const name1 = document.getElementById('name1').value.trim();
+  const name2 = document.getElementById('name2').value.trim();
+  if (!name1 || !name2) {
+    document.getElementById('result').textContent = "Upiši oba imena!";
+    return;
+  }
+  const combined = (name1 + name2).toUpperCase().replace(/\s+/g, '');
+  const counts = [];
+  for (let i = 0; i < combined.length; i++) {
+    const char = combined[i];
+    const count = combined.split(char).length - 1;
+    counts.push(count);
+  }
+  // 🔁 Rekurzivna funkcija za izračunavanje rezultata
+  function reduceArray(arr) {
+    if (arr.length <= 2) return parseInt(arr.join(''));
+    const newArr = [];
+    for (let i = 0; i < Math.floor(arr.length / 2); i++) {
+      newArr.push(arr[i] + arr[arr.length - 1 - i]);
+    }
+    if (arr.length % 2 !== 0) {
+      newArr.push(arr[Math.floor(arr.length / 2)]);
+    }
+    return reduceArray(newArr);
+  }
+  let result = reduceArray(counts);
+  result = result > 100 ? result % 100 : result;
+  document.getElementById('result').innerHTML =
+    `<p>${name1} ❤️ ${name2} = <strong>${result}%</strong> ljubavne kompatibilnosti</p>`;
+}
+</script>
+</body>
+</html>
