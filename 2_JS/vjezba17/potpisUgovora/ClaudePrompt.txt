@@ -1,0 +1,1 @@
+ direktoriju 2_JS\vjezba17\potpisUgovora imaš jednostavnu aplikaciju koja omogućuje potpis ugovora. Doradi aplikaciju na način da s desne strane složiš sve do tada potpise koji su uneseni i ugovor potpisan.

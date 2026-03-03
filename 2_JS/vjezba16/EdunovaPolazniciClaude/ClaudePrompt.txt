@@ -1,0 +1,3 @@
+U direktoriju 2_JS\vjezba16\EdunovaPolazniciClaude pripremio sam poddirektorije za mrežnu stranicu na kojoj bih predstavio polaznike škole Edunova na smjeru Frontend devloper. Slike se nalaze u direktoriju img. Napravi index.html koji u sebi ima moderni izgled popisa polaznika, pripremi mi područje za ime i prezime. Sav css stavi u css direktorij, js stavi u js direktorij. Stranica mora biti moderna na principu kartica polaznika ali mora imati i mogućnost galerije kada se klikne na jednu od slika. Dizajn neka bude moderan sukladno trendovima u 2026.
+
+
