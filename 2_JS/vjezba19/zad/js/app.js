@@ -1,4 +1,5 @@
 const { createApp } = Vue;
+const brojPitanja = 5;
 
 createApp({
     data() {
@@ -6,7 +7,8 @@ createApp({
             pitanjaZaKrug: [],
             indeks: 0,
             rezultat: 0,
-            pokaziRezultate: false
+            pokaziRezultate: false,
+            brojPitanja: brojPitanja
         }
     },
     computed: {
@@ -16,7 +18,7 @@ createApp({
         },
         // Izračunava širinu progres trake
         progres() {
-            return (this.indeks / 5) * 100;
+            return (this.indeks / brojPitanja) * 100;
         },
         // Logika ocjenjivanja prebačena u computed radi čistoće
         izracunajOcjenu() {
@@ -36,7 +38,7 @@ createApp({
             // Skraćena verzija miješanja i odabira 5 unikatnih pitanja
             this.pitanjaZaKrug = [...skupPitanja]
                 .sort(() => 0.5 - Math.random())
-                .slice(0, 5);
+                .slice(0, brojPitanja);
             
             this.indeks = 0;
             this.rezultat = 0;
@@ -47,7 +49,7 @@ createApp({
                 this.rezultat++;
             }
 
-            if (this.indeks < 4) {
+            if (this.indeks < brojPitanja-1) {
                 this.indeks++;
             } else {
                 this.pokaziRezultate = true;
