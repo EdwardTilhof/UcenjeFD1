@@ -9,52 +9,53 @@
             background-color: red;
             color: white;
             position: fixed;
-            top: 0%;
+            top: 0;
             width: 100%;
             text-align: center;
         }
     </style>
 </head>
 <body>
+
     <p id="ispis">
 
     </p>
-    
+
     <button onclick="alert('Hello world 7')">
         Klikni me
     </button>
 
-    <div onmouseover="this.style.backgroundColor+'#f0f'"
+    <div onmouseover="this.style.backgroundColor='#f0f'"
     onmouseleave="this.style.backgroundColor='white'">
-    Dodji misem iznad
+        Dođi mišem iznad
     </div>
 
     <input type="text" name="" id="" 
     style="font-size: 3rem;"
     onkeyup="this.value = this.value.toUpperCase()">
+    
 
     <noscript>
         <div class="nojs">
-            Vas preglednik nepodrzava Java script!
+            Vaš preglednik ne podržava JavaScript!
         </div>
     </noscript>
     <script>
-        // ovo je komentar jedna linija
+        // Ovo je komenta jedna linija
 
-        /* 
-        ovo je komentar 
-        vise linija
+        /*
+        Ovo je komentar
+        više linija
         */
-
-        document.write('Hellor world 1');
+        document.write('Hello world 1');
 
         console.log('Hello world 2');
 
-        // alert('Hello world 3');
+        //alert('Hello world 3');
 
-        document.getElementById('ispis').innerText = 'Hello world 4';
+        document.getElementById('ispis').innerText='Hello world 4';
         document.getElementById('ispis').style.color='red';
     </script>
-    <script src="scripta.js"></script>
+    <script src="skripta.js"></script>
 </body>
 </html>

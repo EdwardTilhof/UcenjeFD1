@@ -37,6 +37,7 @@ startBtn.onclick = async () => {
     const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
     document.getElementById('audioPlayback').src = URL.createObjectURL(audioBlob);
     audioUrl = URL.createObjectURL(audioBlob);
+    console.log(audioUrl);
     downloadBtn.disabled = false;
     audioChunks = [];
   };
@@ -99,9 +100,11 @@ downloadBtn.onclick = () => {
     const a = document.createElement('a');
     a.style.display = 'none';
     a.href = audioUrl;
+    console.log(audioUrl);
     a.download = userFileName;
     document.body.appendChild(a);
     a.click();
+    console.log(a);
     
     // Čišćenje
     setTimeout(() => {

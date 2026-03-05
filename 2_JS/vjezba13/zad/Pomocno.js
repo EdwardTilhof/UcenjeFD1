@@ -67,7 +67,10 @@ class Pomocno {
     static kreirajElement(naziv,tekst,css=''){
         const noviElement = document.createElement(naziv);
         noviElement.innerText = tekst;
-        noviElement.className = css;
+        if(css.length>0){
+            noviElement.className = css;
+        }
+        
         return noviElement;
     }
 }

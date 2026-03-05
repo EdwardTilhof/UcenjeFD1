@@ -34,7 +34,7 @@
     $('#popis-odgovora').on('click', '.gumb-odgovor', function() {
         const odabrano = $(this).data('odgovor');
         //debugger
-        if (odabrano == trenutnaPitanja[indeksPitanja].tocno) {
+        if (odabrano.toString() === trenutnaPitanja[indeksPitanja].tocno) {
             rezultat++;
             $(this).addClass('success'); // Brza vizualna povratna informacija
         } else {

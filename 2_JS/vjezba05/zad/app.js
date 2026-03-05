@@ -21,75 +21,37 @@ document.getElementById('izvedi').addEventListener('click', () => {
 
       // kraj rješavanje 3. zadatak
     break;
+
     case '4':
-
-    // Ulaz 3.14       izlaz 14
-
-    const x = parseFloat(a)
-    if(!x){
-      rezultat.innerHTML='Niste unjeli dobru vrijednost'
-    return;
-    }
-    const cijeliBroj = parseInt(a)
-    const sum = x - cijeliBroj
-    rezultat.innerHTML = parseInt((x-cijeliBroj)*100)   
-
+      rezultat.innerHTML=a.length
+    
+    
+    
     break;
 
     case '5':
 
-    const y = Number(a)
-    if(!y){
-      rezultat.innerHTML='Niste unjeli broj'
-      return;
-    }
-    if (y%2===0){
-      rezultat.innerHTML = 'Paran'
-    } else {
-      rezultat.innerHTML = 'Neparan'
-    }
+    const doBroja = Number(a);
 
-    break
-
-    case '6':
-
-    switch (a.toLowerCase()){
-      case 'jabuka':
-      case 'kruska':
-      case 'banana':
-        rezultat.innerHTML = 'Voce je'
-        break;
-        default:
-          rezultat.innerHTML = 'Nemamo informacije dali je voce ili nije'
-    } 
-
-    break;
-
-    case '7':
-
-    rezultat.innerHTML = "Broj znakova: " + a.length;
-
-    break;
-
-    case '8':
-
-    const xx = Number(a)
     if(!a){
       rezultat.innerHTML='Unesite broj';
       return;
     }
-let s='';
-    for(i=0;i<xx;i++)
-      console.log(i + ',');
-      s += i+', ';
-      if(i===xx){
-        s+=i;
-      }else {
-        s += i +', '
-      }
-    rezultat.innerHTML= s;
 
-break;
+    let s='';
+
+    for(let i=1;i<=doBroja;i++){
+      console.log(i + ',');
+      if(i===doBroja){
+        s += i;
+      }else{
+        s += i + ', ';
+      }
+      
+    }
+    rezultat.innerHTML = s;
+
+    break;
 
     default:
       rezultat.innerHTML = `Nepoznati zadatak ${zadatak}`;

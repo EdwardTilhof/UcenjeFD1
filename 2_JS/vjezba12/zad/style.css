@@ -129,7 +129,3 @@ input[type="text"] {
     color: var(--primarna-boja);
     font-weight: bold;
 }
-
-.sifra {
-    text-align: right;
-}

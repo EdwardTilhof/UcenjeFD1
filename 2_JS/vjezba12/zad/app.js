@@ -1,6 +1,6 @@
 let filtriraniPodaci = [...sviKorisnici];
 let trenutnaStranica = 1;
-const redovaPoStranici = 10;
+const redovaPoStranici = 5;
 let trenutnoSortiranje = { kolona: 'id', uzlazno: true };
 
 
@@ -103,6 +103,7 @@ function izracunajStatistiku() {
         • Primjer polaznika ispod praga (50 bodova): ${polaznikKojiJePao ? polaznikKojiJePao.ime : 'Nema nitko'}<br>
         • Mate Rimac se u bazi nalazi na indeksu: ${pozicijaPolaznik}
     `;
+    // zadatak: preraditi kod tako da se ne koristi innerHTML već putem DOM-a
 }
 document.getElementById('poljePretraga').focus();
 osvjeziPrikaz();

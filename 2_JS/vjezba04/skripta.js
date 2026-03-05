@@ -1,101 +1,91 @@
-// Uvjetno grananje if
+// uvjetno grananje if
 
-// if radi s boolean tipom podataka
+// if radi s boolean tipom podatka
 
-const uvjet = false
+const uvjet = true;
 
 // osnovna if sintaksa treba samo if granu
-
-if (uvjet) { // u if granu se ulazi ako je vrijednost true
+if(uvjet){ // u if granu se ulazi ako je vrijednost true
     console.log('Uvjet je true');
-
 }
 
-// NIKADA NE RADITI
-
-if (uvjet == true) {
+// NIKADA NE RADITI - RED FLAG
+if(uvjet==true){
     console.log('Ovo ne treba raditi');
+    
 }
-
-// A BOME NITI OVO
-if (uvjet === true) {
+// a bome niti ovo
+if(uvjet===true){
     console.log('Niti ovo ne treba raditi');
 }
 
 // pošto if radi s boolean imamo i drugu granu
-if (uvjet) {
+if(uvjet){
     console.log('Uvjet je true');
-} else { // ovdje se ulazi ako je uvjet false
-    console.log('Uvjet je false');
+}else{ // ovdje se ulazi ako je vrijednost false
+    console.log('Uvijet je false');
 }
 
-// ako ne postoje {} tada se uvjet odnosiu samo na prvu sljedecu liniju
-
-if (uvjet)
+// ako ne postoji {} tada se uvjet odnosi samo na prvu sljedeću liniju
+if(uvjet)
     console.log('Bez {} true');
 else
     console.log('Bez {} false');
-console.log('Ovo se treba izvesti ako je uvjet false'); // ova linija nije dio else
-
+    console.log('Ovo se treba izvesti ako je false'); // ova linija nije dio else
+    
 
 // if naredba ima i else if dio
-// - volja zamjena za else if je switch
+// -bolja zamjena za else if je switch
 
 const ocjena = 3;
-if (ocjena === 1) {
+
+if(ocjena===1){
     console.log('Nedovoljan');
-} else if (ocjena === 2) {
+}else if(ocjena===2){
     console.log('Dovoljan');
-} else if (ocjena === 3) {
-    console.log('Dobar');
-} else if (ocjena === 4) {
-    console.log('Vrlo dobar');
-} else if (ocjena === 5) {
-    console.log('Odličan');
+}else if(ocjena===3){
+    console.log('Dobar')
+}
+// možemo imati else if puno
+else{
+    console.log('Ocjena nije 1, 2 ili 3');
 }
 
-// mozemo imati else if puno
-else {
-    console.log('Ocjena mora biti unutar parametra 1-5');
-}
-
-// ugnjezdjeni if
-
-if (uvjet) {
-    if (ocjena > 1) {
+// ugnježđeni if
+if(uvjet){
+    if(ocjena>1){
         console.log('Oba uvjeta su zadovoljena');
     }
 }
 
-// Ovo moze i krace
-
-if (uvjet && ocjena > 1) {
-    console.log('Kraci nacin zadovoljavanja uvjeta');
+// ovo gore može kraće
+if(uvjet && ocjena>1){
+    console.log('Kraći način zadovoljavanja oba uvjeta');
 }
 
 // tercijarni operator ? : je zapravo inline if
 // ukoliko rezultat uvjeta (true/false) pozove istu akciju (u primjeru console.log)
 
-if (ocjena >= 2) {
-    console.log('Pozitivna');
-} else {
+if(ocjena>=2){
+    console.log('Pozitivna')
+}else{
     console.log('Negativna');
 }
 
 console.log(ocjena>2 ? 'Pozitivna' : 'Negativna');
 
-// falsy vrijednosti
-const ime='';
+// falsy/truly vrijednosti
+const ime=''; // if (ime) false
+// const ime='Pero' // if(ime) true
 
 if(ime){
     console.log('Ime je postavljeno');
 }
 
-const b=0;
+// ostale falsy vrijednosti:
+const b=0; // if(b) false
 let objekt=null;
-let nedefinirano;
+let nedefinirano; //undefined
 
 const broj = Number('aaa');
-console.log(broj); // NaN "Not a number", NaN je falsy
-
-
+console.log(broj); // NaN Not a number, NaN je falsy

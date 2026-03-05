@@ -74,4 +74,3 @@ let podaciSAPI = []; //[{ime:'Pero'}, {ime:'Marko'}];
 while(podaciSAPI.length>0){
     console.log('Ušao u while petlju', podaciSAPI.pop()?.ime);
 }
-    

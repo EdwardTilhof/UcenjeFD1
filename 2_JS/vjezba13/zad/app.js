@@ -24,9 +24,21 @@ obrazac.addEventListener('submit', (dogadaj) => {
     } catch (e) {
         kontejnerPogreske.appendChild(Pomocno.kreirajElement('p',e.message));
         // staro kontejnerPogreske.innerText = '⚠️ ' + pogreska.message;
-        document.querySelectorAll('.greska').forEach(o => o.replaceChildren()); // počisti sve greške
-        konf.greske.forEach(o => document.getElementById('greska-'+o.element.id).appendChild(Pomocno.kreirajElement('p','⚠️ ' + o.greska))); // pobacaj poruke na pripadajuće div-ove vezane za unosna polja
-   
+        document
+        .querySelectorAll('.greska')
+        .forEach(o => o.replaceChildren()); // počisti sve greške
+        /*
+        konf
+        .greske
+        .forEach(o => 
+            document.getElementById('greska-'+o.element.id)
+            .appendChild(Pomocno.kreirajElement('p','⚠️ ' + o.greska))); // pobacaj poruke na pripadajuće div-ove vezane za unosna polja
+        */
+
+
+        document.getElementById('greska-'+konf.greske[0].element.id)
+            .appendChild(Pomocno.kreirajElement('p','⚠️ ' + konf.greske[0].greska));
+
         konf.greske[0].element.focus(); // fokusiraj kursor na 1. unosno polje gdje je greška
     }
 });

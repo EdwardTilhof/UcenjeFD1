@@ -1,267 +1,149 @@
+
 const rezultat = document.getElementById('rezultat');
-
 document.getElementById('izvedi').addEventListener('click', () => {
-  rezultat.innerHTML = '';
-
+  rezultat.innerHTML='';
   const a = document.getElementById('a').value;
   const b = document.getElementById('b').value;
   const c = document.getElementById('c').value;
   const d = document.getElementById('d').value;
   const zadatak = document.getElementById('zadatak').value;
 
-  // -----------------------
-  // ZADATAK 1
-  // -----------------------
-  if (zadatak === '1') {
-    const x = Number(a);
-    const y = Number(b);
 
-    // Provjera da li su brojevi
-    if (isNaN(x)) {
-      rezultat.innerHTML = 'A nije broj';
-      return;
-    }
+  // 3. zadatak napraviti doma, ima na snimci, Vincent riješio
 
-    if (isNaN(y)) {
-      rezultat.innerHTML = 'B nije broj';
-      return;
-    }
+  // 4. zadatak
+  //    Provjera punoljetnosti: 
+  //  Korisnik unosi godinu rođenja u polje A. 
+  //  Izračunaj njegovu dob u odnosu na tekuću godinu i ispiši je li punoljetan ili nije.
 
-    // Usporedba
-    if (x > y) {
-      rezultat.innerHTML = x;
-    } else if (y > x) {
-      rezultat.innerHTML = y;
-    } else {
-      rezultat.innerHTML = 'A i B su isti';
-    }
 
-    return; // short-circuiting
-  }
+  /*
+  [ZADATAK 5]
+ Pozitivan, negativan ili nula: 
+ Za uneseni broj u polju A ispiši poruku je li on pozitivan, negativan ili je nula.
 
-  // -----------------------
-  // ZADATAK 2
-  // -----------------------
-  if (zadatak === '2') {
-    const x = Number(a);
-    const y = Number(b);
-    const z = Number(c);
+ ----------------------------------------------------------------
+ 
+ [ZADATAK 6]
+ Parnost broja: 
+ Provjeri je li uneseni broj u polju A paran ili neparan koristeći modulo operator (%).
 
-    // Provjera brojeva
-    if (isNaN(x)) {
-      rezultat.innerHTML = 'A nije broj';
-      return;
-    }
-    if (isNaN(y)) {
-      rezultat.innerHTML = 'B nije broj';
-      return;
-    }
-    if (isNaN(z)) {
-      rezultat.innerHTML = 'C nije broj';
-      return;
-    }
+ ----------------------------------------------------------------
+ 
+ [ZADATAK 7]
+ Ocjenjivanje: 
+ Na temelju unesenog broja bodova (0-100) u polje A, ispiši ocjenu:
+ 90-100: Odličan, 80-89: Vrlo dobar, 70-79: Dobar, 60-69: Dovoljan, <60: Nedovoljan.
 
-    // Najmanji broj
-    if (x <= y && x <= z) {
-      rezultat.innerHTML = x;
-    } else if (y <= x && y <= z) {
-      rezultat.innerHTML = y;
-    } else {
-      rezultat.innerHTML = z;
-    }
+ ----------------------------------------------------------------
+ 
+ [ZADATAK 8]
+ Djeljivost: 
+ Provjeri je li broj u polju A djeljiv s brojem u polju B bez ostatka. 
+ Ispiši "Djeljiv je" ili "Nije djeljiv".  
+  */
 
-    return;
-  }
-
-  // zadatak 3
-
-  if (zadatak === '3') {
-    const x = Number(a);
-    const y = Number(b);
-    const z = Number(c);
-    const w = Number(d);
-
-    if (isNaN(x)) {
-      rezultat.innerHTML = 'A nije broj';
-      return;
-    }
-    if (isNaN(y)) {
-      rezultat.innerHTML = 'B nije broj'
-      return;
-    }
-    if (isNaN(z)) {
-      rezultat.innerHTML = 'C nije broj'
-      return;
-    }
-    if (isNaN(w)) {
-      rezultat.innerHTML = 'D nije broj'
-      return;
-    }
-
-    rezultat.innerHTML = x + y + z + w;
-
-    //    rezultat.innerHTML = a + b + c + d ( ovdje spaja stringove ) 
-
-    return;
-  }
-
-  //-------------------
-  //  4 Zadatak
-  //-------------------
-
-  // Korisnik unosi godinu rodjenja u polje A
-  // Izracunaj njegovu dob u odnosu na tekucu godinu i ispisi dali je punoljetan
-
-  if (zadatak === '4') {
-
-    const x = Number(a)
-
-    if (isNaN(x)) {
-      rezultat.innerHTML = 'Niste unjeli ispravan broj ili znak. molimo unesite broj'
-      return;
-    }
-    if (x < 18) {
-      rezultat.innerHTML = 'Maloljetni ste'
-      return;
-    } else if (x >= 18) {
-      rezultat.innerHTML = 'Punoljetni ste'
-      return;
-    }
-  }
-
-// -----------------------
-// ZADATAK 5
-// -----------------------
-
-if (zadatak === '5') {
-  console.log('Rjesavam zadatak 5');
-
-  const x = Number(a);
-  const y = Number(b);
-  const z = Number(c);
-  const zz = Number(d);
-
-  if (isNaN(x) || isNaN(y) || isNaN(z) || isNaN(zz)) {
-    rezultat.innerHTML = 'Niste unjeli broj.';
-    return;
-  }
-
-  const biggerXY = x > y ? x : y;
-  const biggerZZZ = z > zz ? z : zz;
-
-  const sum = biggerXY + biggerZZZ;
-
-  // ✅ FIX: backticks
-  rezultat.innerHTML = `Rezultat je: ${sum}`;
-  return;
+// 5. Ispiši umnozak A i D
+if(zadatak==='5'){
+const x=Number(a)
+const y=Number(d)
+if (!x || x===0){
+rezultat.innerHTML='Greska'
+return
+}
+if (!y || y===0){
+rezultat.innerHTML='Greska'
+return
 }
 
-// -----------------------
-// ZADATAK 6
-// -----------------------
-
-if (zadatak === '6') {
-  console.log('Rjesavam zadatak 6');
-
-  const zz = Number(d);
-
-  if (a !== '' || b !== '' || c !== '') {
-    rezultat.innerHTML =
-      'Unijeli ste podatke u polja A, B ili C. Molimo ostavite ih prazna.';
-    return;
-  }
-   if (isNaN(zz)) {
-    rezultat.innerHTML = 'Niste unjeli broj u polje D.';
-    return;
-  }
-const sum = zz * 10
-
-rezultat.innerHTML = `Rezultat je: ${sum}`;
-return;
+rezultat.innerHTML=x*y
+  return
 }
 
-// -----------------------
-// ZADATAK 7
-// -----------------------
-if (zadatak === '7') {
-  console.log('Rjesavam zadatak 7');
 
-  const adresaEdunova = 'Osijek';
 
-  if (a !== '' || c !== '' || d !== '') {
-    rezultat.innerHTML =
-      'Unijeli ste podatke u polja A, C ili D. Molimo ostavite ih prazna.';
+
+
+
+  if(zadatak==='4'){
+    // ovdje rješavati 4. zadata.
+
+
+
     return;
   }
 
-  if (b === '') {
-    rezultat.innerHTML = 'Molimo unesite adresu u polje B.';
-    return;
-  }
-
-  if (b !== adresaEdunova) {
-    rezultat.innerHTML = 'Niste unijeli ispravnu adresu.';
-    return;
-  }
-
-  rezultat.innerHTML = 'Unijeli ste pravu adresu.';
-  return;
-}
-
-// -----------------------
-// ZADATAK 7
-// -----------------------
-
-if (zadatak === '8') {
-  console.log('Rjesavam zadatak 8');
-
-  const x = a;
-  const y = b;
-  
-  if (c !== '' || d !== ''){
-    rezultat.innerHTML = 'Unjeli ste podatke u polja C i D. Polja C i D moraju ostati prazna'
-    return;
-  }
-  if (x === '') {
-    rezultat.innerHTML = 'Molimo unesite podatke u polje A';
-    return;
-  }
-   if (y === '') {
-    rezultat.innerHTML = 'Molimo unesite podatke u polje B';
-    return;
-  }
-
-  rezultat.innerHTML = `unjeli ste ${x} i ${y} te ste dobili ${x+y}`;
-  return;
-}
-
-// -----------------------
-// ZADATAK 7
-// -----------------------
-
-if (zadatak === '9') {
-  console.log('Rjesavam zadatak broj 9');
-
+  if(zadatak==='2'){
   const x = Number(a)
-  const zz = Number(d)
+  if(!x){
+    rezultat.innerHTML='A nije broj'
+    return
+  }
+  const y = Number(b)
+  if(!y){
+    rezultat.innerHTML='B nije broj'
+    return
+  }
+  const z = Number(c)
+  if(!z){
+    rezultat.innerHTML='C nije broj'
+    return
+  }
 
-  if (b !== '' || c !== ''){
-    rezultat.innerHTML = 'Polja B i C trebaju ostat prazna';
+  if(x<y&&x<z){
+    rezultat.innerHTML=x
+  }else if(y<x&&y<z){
+    rezultat.innerHTML=y
+  }else{
+    rezultat.innerHTML=z
+  }
+
+
+
     return;
   }
-  if (isNaN(x) || isNaN(zz)) {
-    rezultat.innerHTML = 'Polja A i D mogu jedino imati brojeve. Molimo ne upisivati znakove ili prazna polja'
-  return;
+
+
+  // Za svaki zadatak zahtijevamo određene ulaze
+  if (zadatak === '1') {
+    //console.log('1. zadatak');
+    //console.log(a);
+
+    const x = Number(a); // mogu dobiti NaN
+    if(!x){
+      rezultat.innerHTML='A nije broj';
+      return;
+    }
+
+    const y = Number(b);
+    if(!y){
+      rezultat.innerHTML='B nije broj';
+      return;
+    }
+    // ovdje sam siguran kako imam brojeve u varijablama x i y
+    if(x>y){
+      rezultat.innerHTML=x;
+    }else if(y>x){
+      rezultat.innerHTML=y;
+    }else{
+      rezultat.innerHTML='A i B su isti';
+    }
+    /*
+    if(a>b){
+      rezultat.innerHTML=a;
+    }else{
+      rezultat.innerHTML=b;
+    }
+      */
+    return; // short curcuiting prekida izvođenje cijele funkcije ()=>{}
   }
 
-  const sum = x * zz
-  rezultat.innerHTML = `Unjeli ste brojeve A = ${x} i D = ${zz} te je umnozak ${sum}`
-  return;
-}
+  // Ovdje će doći drugi zadatak
 
-
-  // -----------------------
-  // Nepoznati zadatak
-  // -----------------------
+  
+  // ovo će se ispisati ako u HTML dodatke option za zadatak a ovdje ga ne obradite
   rezultat.innerHTML = `Nepoznati zadatak ${zadatak}`;
 });
+
+
+
