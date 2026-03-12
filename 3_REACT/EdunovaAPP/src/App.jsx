@@ -1,13 +1,14 @@
-import { useState } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
+import { Container } from 'react-bootstrap'
+import NavBar from './components/NavBar'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-Hello Edunova
-    </>
+    <Container>
+<NavBar />    
+</Container>
   )
 }
 
