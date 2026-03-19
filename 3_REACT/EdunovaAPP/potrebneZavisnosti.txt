@@ -2,3 +2,6 @@ U terminalu nakon što ste yaustavili aplikaciju (ctrl + c) iyvesti:
 
 npm install react-bootstrap bootstrap
 npm install react-router-dom
+
+npm install react-number-format
+npm install react-icons

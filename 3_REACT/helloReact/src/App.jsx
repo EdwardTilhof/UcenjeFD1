@@ -1,11 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {Container} from 'react-bootstrap'
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Table from 'react-bootstrap/Table';
-import Gumb from 'react-bootstrap/Button';
+
 import react from './assets/react.svg'
 import './App.css'
+import { Button, Card, Container, Table } from 'react-bootstrap'
 
 function App() {
  
@@ -17,7 +14,7 @@ function App() {
       <a href="moduli/index.html">Moduli</a>
 
       <hr />
-
+    
      <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={react} />
       <Card.Body>
@@ -27,13 +24,10 @@ function App() {
           bulk of the card's content.
         </Card.Text>
         <Button variant="primary">Go somewhere</Button>
-        <Gumb variant="dark">Moj gumb</Gumb>
+        <Button variant="dark">Moj gumb</Button>
       </Card.Body>
      </Card>
 
-     <Table>
-
-     </Table>
 
      <Table striped bordered hover responsive>
       <thead>
