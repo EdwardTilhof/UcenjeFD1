@@ -7,7 +7,8 @@ import { RouteNames } from './constants'
 
 // Don't forget to import your page components!
 import Home from './pages/Home' 
-import SmjerPregled from './pages/smjerovi/SmjerPregled'
+import SmjerPregled from './pages/smjerovi/smjerPregled'
+import  {SmjerNovi}  from './pages/smjerovi/SmjerNovi'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path={RouteNames.HOME} element={<Home />} />
         <Route path={RouteNames.SMJEROVI} element={<SmjerPregled />} />
+        <Route path={RouteNames.SMJEROVI_NOVI} element={<SmjerNovi />} />
       </Routes>
       <hr />
       &copy; Edunova
