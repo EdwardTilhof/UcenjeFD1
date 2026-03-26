@@ -1,8 +1,8 @@
+export const IME_APLIKACIJE='Edunova APP'
+
 export const RouteNames = {
     HOME: '/',
-    SMJEROVI: '/smjerovi',
+    SMJEROVI: '/smjerovi', // ovo je ruta
     SMJEROVI_NOVI: '/smjerovi/novi',
-};
-
-export const IME_APLIKACIJE = 'Edunova App';
-
+    SMJEROVI_PROMJENA: '/smjerovi/:sifra'
+}
