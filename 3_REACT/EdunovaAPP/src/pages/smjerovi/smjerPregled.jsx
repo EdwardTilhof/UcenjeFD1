@@ -19,12 +19,20 @@ export default function SmjerPregled() {
 
     async function ucitajSmjerove() {
         await SmjerService.get().then((odgovor) => {
-
-            // u dev modu (na našem računalu) ispisati će dva puta, sve će biti u redu u produkciji
-          //  console.table(odgovor.data)
-
+            if(!odgovor.success){
+                alert('Nije implementiran servis')
+                return
+            }
             setSmjerovi(odgovor.data)
         })
+    }
+
+    async function obrisi(sifra) {
+        if(!confirm('Sigurno obrisati')){
+            return
+        }
+        await SmjerService.obrisi(sifra)
+        ucitajSmjerove()
     }
 
 
@@ -34,7 +42,7 @@ export default function SmjerPregled() {
             className="btn btn-success w-100 mb-3 mt-3">
                 Dodavanje novog smjera
             </Link>
-            <Table>
+            <Table striped bordered hover>
                 <thead>
                     <tr>
                         <th>Naziv</th>
@@ -48,9 +56,9 @@ export default function SmjerPregled() {
                 <tbody>
                     {smjerovi && smjerovi.map((smjer) => (
                         <tr key={smjer.sifra}>
-                            <td>{smjer.naziv}</td>
-                            <td>{smjer.trajanje}</td>
-                            <td>
+                            <td className="lead">{smjer.naziv}</td>
+                            <td className="text-end">{smjer.trajanje}</td>
+                            <td className="text-end">
                                 <NumericFormat
                                     value={smjer.cijena}
                                     displayType={'text'}
@@ -64,7 +72,7 @@ export default function SmjerPregled() {
                             <td>
                                 <FormatDatuma datum={smjer.datumPokretanja} />
                             </td>
-                            <td>
+                            <td className="text-center">
                                 <GrValidate
                                     size={25}
                                     color={smjer.aktivan ? 'green' : 'red'}
@@ -73,6 +81,10 @@ export default function SmjerPregled() {
                             <td>
                                 <Button onClick={()=>{navigate(`/smjerovi/${smjer.sifra}`)}}>
                                     Promjena
+                                </Button>
+                                &nbsp;&nbsp;
+                                 <Button variant="danger" onClick={()=>{obrisi(smjer.sifra)}}>
+                                    Obriši
                                 </Button>
                             </td>
                         </tr>

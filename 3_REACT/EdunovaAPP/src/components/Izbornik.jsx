@@ -11,7 +11,7 @@ export default function Izbornik() {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
-                <Navbar.Brand href="#home">{IME_APLIKACIJE}</Navbar.Brand>
+                <Navbar.Brand>FD1</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
@@ -23,6 +23,10 @@ export default function Izbornik() {
                             <NavDropdown.Item
                             onClick={()=>navigate(RouteNames.SMJEROVI)}
                             >Smjerovi</NavDropdown.Item>
+
+                        <NavDropdown.Item
+                            onClick={()=>navigate(RouteNames.POLAZNICI)}
+                            >Polaznici</NavDropdown.Item>
                             
                         </NavDropdown>
                     </Nav>
